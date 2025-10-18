@@ -1,0 +1,833 @@
+/* Variables for easy theme switching */
+:root {
+    --primary-color: #7209b7;
+    --secondary-color: #3a0ca3;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --hover-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    --border-radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures footer is at the bottom */
+}
+
+/* === Utility Classes & Page Structure === */
+.page {
+    padding: 20px 50px;
+    flex: 1; /* Allows page content to grow */
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Buttons === */
+.btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: var(--shadow);
+}
+.primary-btn:hover {
+    background-color: var(--secondary-color);
+    box-shadow: var(--hover-shadow);
+}
+.secondary-btn {
+    background-color: #e9ecef;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+.secondary-btn:hover {
+    background-color: #dee2e6;
+}
+.back-btn {
+    background: none;
+    color: var(--text-color);
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+.btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+.small-btn {
+    padding: 5px 10px;
+    font-size: 0.9em;
+}
+
+/* === Navbar === */
+#navbar {
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+}
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+.nav-links li a:hover {
+    color: var(--primary-color);
+}
+.active-link {
+    color: var(--primary-color) !important;
+    font-weight: 700 !important;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+
+/* === Form/Card Styles (Login, Booking Search, User Details) === */
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #2e0966 100%);
+}
+.login-card, .search-card, .form-card, .confirmation-card {
+    max-width: 450px;
+    margin: 50px auto; 
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+.login-card { margin: 0; }
+.login-card h2, .search-card h2, .form-card h2 {
+    margin-bottom: 25px;
+    color: var(--secondary-color);
+}
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.input-group input, .input-group select, .input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+}
+.login-card .btn, .search-card .btn, .form-card .btn {
+    width: 100%;
+    margin-top: 10px;
+}
+.footnote {
+    margin-top: 15px;
+    font-size: 0.8em;
+    color: #6c757d;
+}
+
+/* === Home Page Sections (Attractive) === */
+
+.carousel-section {
+    position: relative;
+    min-height: 400px; 
+    margin-bottom: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+.carousel-container {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+.carousel-slide {
+    /* Ensure the slide image/container takes full space */
+    display: block !important; 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-info-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+    color: white;
+    /* FIX: Adjusted max-width and padding to avoid content overlap */
+    padding: 25px 30px; 
+    max-width: 550px; 
+    width: 90%; 
+    background-color: rgba(114, 9, 183, 0.85); /* Semi-transparent Primary */
+    border-radius: var(--border-radius);
+    box-shadow: var(--hover-shadow);
+}
+.carousel-info-box h1 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+.carousel-info-box p {
+    margin-bottom: 15px; 
+}
+.carousel-info-box .btn {
+    margin-top: 10px;
+    padding: 12px 30px;
+}
+
+/* Hall Types Grid on Home Page */
+.lower-section {
+    padding: 30px 0;
+    text-align: center; 
+}
+.lower-section h2 {
+    margin-bottom: 25px;
+    color: var(--primary-color);
+}
+.hall-types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px auto;
+    max-width: 1200px;
+}
+.hall-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    padding: 0;
+}
+.hall-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+.hall-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+.hall-card h3 {
+    padding: 15px 10px 5px;
+    color: var(--secondary-color);
+}
+.hall-card p {
+    padding: 0 10px 15px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+
+/* === Hall Results Grid === */
+.hall-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+.hall-result-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+.hall-result-card:hover {
+    transform: scale(1.02);
+    box-shadow: var(--hover-shadow);
+}
+.hall-result-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.hall-result-card-content {
+    padding: 20px; /* MODIFIED: Increased padding */
+}
+.hall-result-card-content h3 {
+    color: var(--secondary-color);
+    margin-bottom: 10px; /* MODIFIED: Increased margin-bottom */
+}
+.hall-result-card-content p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px; /* MODIFIED: Increased margin-bottom */
+}
+.hall-result-card-content .btn {
+    width: 100%;
+}
+
+/* === Hall Detail Page === */
+.detail-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+/* Adjust detail layout for small screens */
+@media (max-width: 768px) {
+    .detail-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+}
+
+.carousel-container-detail {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+.hall-image-detail {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+.hall-info-card {
+    padding: 10px 0;
+}
+.hall-info-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+.rating {
+    font-size: 1.2em;
+    color: gold;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.rating span {
+    color: var(--text-color);
+    font-weight: 600;
+    margin-right: 5px;
+}
+.address {
+    margin-bottom: 20px;
+    font-style: italic;
+    color: #666;
+}
+.options-group, .price {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+.options-group select {
+    padding: 8px;
+    border-radius: 5px;
+}
+.hall-info-card .btn {
+    margin-top: 10px;
+}
+
+/* Calendar Styling */
+.calendar-booking-section {
+    grid-column: 1 / -1; 
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    gap: 5px;
+}
+.day-name {
+    font-weight: 600;
+    padding: 8px 0;
+    background-color: #eee;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+.day {
+    padding: 10px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+.day:hover:not(.empty-day):not(.booked-day) {
+    background-color: #e6e6ff;
+}
+.empty-day {
+    visibility: hidden;
+    cursor: default;
+}
+
+/* Availability Colors */
+.available-day {
+    background-color: #e6ffed; /* Light Green */
+    color: #008000; /* Green Text */
+}
+.booked-day {
+    background-color: #ffe6e6; /* Light Red */
+    color: #cc0000; /* Red Text */
+    cursor: not-allowed;
+}
+.day.selected-day {
+    border: 2px solid var(--primary-color);
+    background-color: #d1c4e9; /* Light purple for selection */
+}
+.legend {
+    margin-top: 15px;
+    font-size: 0.9em;
+    text-align: right;
+}
+.legend span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 3px;
+}
+.legend-available { background-color: #008000; }
+.legend-booked { background-color: #cc0000; }
+
+.booking-action-area {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 15px;
+}
+#selected-date-display {
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+/* Confirmation Page */
+.confirmation-card {
+    text-align: center;
+    padding: 40px;
+    margin-top: 15vh;
+}
+.confirmation-card h1 {
+    color: #28a745;
+    margin-bottom: 20px;
+}
+.message-info {
+    color: #6c757d;
+    font-style: italic;
+    margin: 10px 0 20px;
+}
+
+/* === Contact Page Styling === */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+@media (max-width: 992px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+.contact-info, .contact-form-section {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+.contact-info h2, .contact-form-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+.contact-info p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+/* FIX: Social Icons on Contact Page */
+.social-icons a {
+    font-size: 1.8em;
+    margin-right: 15px;
+    /* Changed color from default white (inherited from body/a) to secondary color */
+    color: var(--secondary-color); 
+    transition: color 0.3s ease;
+}
+.social-icons a:hover {
+    color: var(--primary-color);
+}
+.map-placeholder {
+    height: 200px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    font-style: italic;
+}
+
+
+/* --- Footer Styling --- */
+#footer {
+    background-color: var(--secondary-color);
+    color: #ffffff;
+    padding: 25px 50px;
+    margin-top: 30px;
+    font-size: 0.9em;
+    border-top: 5px solid var(--primary-color);
+    text-align: center;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+.footer-links a, .footer-contact-info p {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+.footer-links a:hover {
+    color: #ffd700; /* Gold hover effect */
+}
+.footer-socials a {
+    color: #ffffff;
+    font-size: 1.5em;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+.footer-socials a:hover {
+    color: #ffd700;
+}
+.footer-contact-info {
+    text-align: left;
+    flex-grow: 1;
+}
+.footer-contact-info p {
+    margin-bottom: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+    .carousel-info-box h1 {
+        font-size: 1.5em; 
+    }
+    .carousel-info-box p {
+        font-size: 0.9em; 
+    }
+    .carousel-info-box .btn {
+        padding: 8px 15px; 
+        font-size: 0.9em;
+    }
+}
+/* ... existing styles remain unchanged ... */
+
+/* === Home Page Sections (Attractive) === */
+
+.carousel-section {
+    position: relative;
+    min-height: 400px; 
+    margin-bottom: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+.carousel-container {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+.carousel-slide {
+    /* Ensure the slide image/container takes full space */
+    display: block !important; 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* REMOVE .carousel-info-box STYLES HERE */
+
+/* NEW ATTRACTIVE HERO TEXT SECTION */
+.hero-text-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-20px); /* Lift slightly for an energetic effect */
+    transition: all 0.5s ease;
+}
+
+.hero-text-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-text-section p {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-text-section .primary-btn {
+    padding: 15px 40px;
+    font-size: 1.1em;
+    background-color: #ffd700; /* Gold Button for Contrast */
+    color: var(--secondary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.hero-text-section .primary-btn:hover {
+    background-color: #ffc107;
+    transform: scale(1.05);
+}
+
+
+/* Hall Types Grid on Home Page */
+.lower-section {
+/* ... rest of the lower-section styles remain unchanged ... */
+/* ... existing styles for carousel-section, hero-text-section ... */
+
+
+/* === Hall Types Grid on Home Page (Lower Section) === */
+.lower-section {
+    padding: 20px 0 50px 0; /* Add padding at the bottom */
+    text-align: center;
+}
+
+.lower-section h2 {
+    margin-bottom: 30px;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.hall-types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.hall-card {
+    background-color: #ffffff;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    text-align: left;
+    box-shadow: var(--shadow);
+    /* Add transition for the entire card for a nice lift effect */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+/* Hover effect for the card */
+.hall-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hall-card img {
+    /* Make image bigger (300px width is implied by grid, setting height to 200px) */
+    width: 100%; 
+    height: 200px; /* INCREASED IMAGE HEIGHT */
+    object-fit: cover;
+    /* Add transition for the image zoom effect */
+    transition: transform 0.5s ease-out;
+}
+
+/* Hover effect for the image (Zoom-in) */
+.hall-card:hover img {
+    transform: scale(1.05);
+}
+
+.hall-card h3 {
+    padding: 15px 20px 5px 20px;
+    color: var(--primary-color);
+}
+
+.hall-card p {
+    padding: 0 20px 20px 20px;
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+/* ... rest of the styles remain unchanged ... */
+/* === Hall Types Grid on Home Page (Lower Section) === */
+.lower-section {
+    padding: 20px 0 50px 0; 
+    text-align: center;
+}
+
+.lower-section h2 {
+    margin-bottom: 30px;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.hall-types-grid {
+    /* KEY CHANGE 1: Enable flexbox for horizontal layout */
+    display: flex;
+    
+    /* KEY CHANGE 2: Prevent wrapping to keep all cards on one line */
+    flex-wrap: nowrap; 
+    
+    /* KEY CHANGE 3: Allow horizontal scrolling */
+    overflow-x: auto; 
+    
+    /* Hide the scrollbar for a cleaner look (optional but recommended) */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    
+    padding-bottom: 20px; /* Space for the scroll bar track/thumb if visible */
+    gap: 30px; /* Space between cards */
+    
+    /* Ensures the scrolling starts/ends neatly within the content area */
+    padding-left: var(--content-padding);
+    padding-right: var(--content-padding);
+    margin-left: calc(-1 * var(--content-padding));
+    margin-right: calc(-1 * var(--content-padding));
+}
+
+/* Hide the scrollbar on Webkit browsers (Chrome, Safari) */
+.hall-types-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.hall-card {
+    background-color: #ffffff;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    text-align: left;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    
+    /* KEY CHANGE 4: Fixed width for the card */
+    min-width: 280px; /* Ensures the card is wide enough */
+    width: 280px; 
+    
+    /* Forces the card to not grow, maintaining its fixed width */
+    flex-shrink: 0; 
+}
+
+/* Hover effect for the card */
+.hall-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ... rest of the .hall-card child styles remain the same ... */
+/* ROOT VARIABLES & GENERAL STYLES */
+:root {
+    --primary-color: #007bff; /* Bright Blue */
+    --secondary-color: #343a40; /* Dark Black/Navy */
+    --accent-color: #28a745; /* Green (for confirmation/success) */
+    --background-color: #f8f9fa; /* Light Gray background */
+    --white: #ffffff;
+    --border-radius: 8px;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    --hover-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    --content-padding: 20px;
+}
+
+/* 1. APPLY BACKGROUND GRADIENT HERE */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    min-height: 100vh;
+    
+    background: linear-gradient(
+        180deg, 
+        #f0f4f8 0%,    /* Light Blueish-Gray at the top */
+        #ffffff 40%,   /* White middle (keeping content clean) */
+        #f0f4f8 100%   /* Light Blueish-Gray at the bottom */
+    );
+    background-attachment: fixed; /* Ensures the gradient covers the entire scrollable area */
+}

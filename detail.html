@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hall Details & Booking | Mysore Halls</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">Mysore Events</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="book.html">Book Hall</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div id="detail-page" class="page active">
+        <button class="btn back-btn" onclick="window.location.href='results.html'">← Back to Results</button>
+        
+        <div class="detail-container">
+            
+            <div class="hall-image-section">
+                <div class="carousel-container-detail">
+                    <img id="detail-image" class="hall-image-detail" src="" alt="Hall Image">
+                </div>
+                
+                <div class="hall-info-card">
+                    <h2 id="detail-name">Hall Name</h2>
+                    <div class="rating"><span id="detail-rating">4.5</span> ⭐</div>
+                    <p class="address"><i class="fas fa-map-marker-alt"></i> <span id="detail-address">Address Line</span></p>
+                    
+                    <div class="price" id="detail-price">Price: ₹ 00,000</div>
+                    
+                    <p style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                        *Price is for the base rental package, excluding catering or decorations.
+                    </p>
+                </div>
+            </div>
+
+            <div class="hall-booking-section">
+                <div class="calendar-booking-section">
+                    <h3>Select Your Date</h3>
+                    <div class="calendar-header">
+                        <button id="prev-month-btn" class="btn small-btn secondary-btn">Prev</button>
+                        <span id="current-month-year">Month Year</span>
+                        <button id="next-month-btn" class="btn small-btn secondary-btn">Next</button>
+                    </div>
+
+                    <div id="calendar-grid" class="calendar-grid">
+                        </div>
+                    
+                    <div class="legend">
+                        <span class="legend-available"></span> Available
+                        <span class="legend-booked"></span> Booked
+                    </div>
+
+                    <div class="booking-action-area">
+                        <p id="selected-date-display">Select a date to book.</p>
+                        <button id="detail-book-btn" class="btn primary-btn" disabled>Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-contact-info">
+                <p>Email: support@mysoreevents.com</p>
+                <p>Phone: (0821) 123-4567</p>
+            </div>
+            <div class="footer-links">
+                <a href="home.html">Home</a> | 
+                <a href="book.html">Book Hall</a> | 
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="footer-socials">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <p style="margin-top: 15px;">&copy; 2024 Mysore Events. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

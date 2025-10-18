@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Mysore Events</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="logo">Mysore Events</div>
+        <ul class="nav-links">
+            <li><a href="home.html" class="active-link">Home</a></li>
+            <li><a href="book.html">Book Hall</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div id="home-page" class="page active">
+
+        <section class="carousel-section">
+            <div id="homeCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./images/home/carousel/carousel1.jpg" class="d-block w-100" alt="Event Hall 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./images/home/carousel/carousel2.jpg" class="d-block w-100" alt="Event Hall 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./images/home/carousel/carousel3.jpg" class="d-block w-100" alt="Event Hall 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            </section>
+
+        <section class="lower-section">
+            <h2>Explore Our Featured Hall Types</h2>
+            <div class="hall-types-grid">
+                <div class="hall-card" onclick="scrollToGetStarted()">
+                    <img src="./images/home/hall-types/engagement.jpg" alt="Engagement Halls">
+                    <h3>Engagement Venues</h3>
+                    <p>Beautiful, cozy halls perfect for ring ceremonies and intimate gatherings.</p>
+                </div>
+                <div class="hall-card" onclick="scrollToGetStarted()">
+                    <img src="./images/home/hall-types/marriage.png" alt="Marriage Halls">
+                    <h3>Grand Marriage Halls</h3>
+                    <p>Large, elegant venues and Kalyana Mandapams for traditional weddings.</p>
+                </div>
+                <div class="hall-card" onclick="scrollToGetStarted()">
+                    <img src="./images/home/hall-types/party.png" alt="Party Halls">
+                    <h3>Party & Reception Halls</h3>
+                    <p>Modern spaces ideal for birthdays, anniversaries, and cocktail receptions.</p>
+                </div>
+                <div class="hall-card" onclick="scrollToGetStarted()">
+                    <img src="./images/home/hall-types/conference.png" alt="Conference Halls">
+                    <h3>Corporate Conference Halls</h3>
+                    <p>Professional, well-equipped venues for meetings, seminars, and training.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero-text-section" id="getStartedSection">
+            <div class="hero-content">
+                <h2>Your Celebration Starts Here.</h2>
+                <p>Find the perfect venue in Mysore for weddings, engagements, corporate events, and parties—all within a few clicks.</p>
+                <a href="book.html" class="btn primary-btn large-btn">Get Started & Find Your Hall</a>
+            </div>
+        </section>
+
+    </div>
+    
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-contact-info">
+                <p>Email: support@mysoreevents.com</p>
+                <p>Phone: (0821) 123-4567</p>
+            </div>
+            <div class="footer-links">
+                <a href="home.html">Home</a> | 
+                <a href="book.html">Book Hall</a> | 
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="footer-socials">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <p style="margin-top: 15px;">&copy; 2024 Mysore Events. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

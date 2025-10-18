@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Details | Mysore Halls</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">Mysore Events</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="book.html">Book Hall</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div id="user-details-page" class="page active">
+        <button class="btn back-btn" onclick="window.location.href='detail.html'">← Back to Date Selection</button>
+        <div class="form-card">
+            <h2>Enter Your Booking Details</h2>
+            
+            <div style="text-align: left; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #ddd;">
+                <p style="font-weight: 600; margin-bottom: 5px;">Hall: <span id="user-details-hall-name" style="color: var(--secondary-color);">Loading...</span></p>
+                <p style="font-weight: 600; margin-bottom: 5px;">Date: <span id="user-details-date" style="color: var(--secondary-color);">Loading...</span></p>
+                <p style="font-weight: 600; margin-bottom: 5px;">Event Type: <span id="user-details-hall-type" style="color: var(--secondary-color);">Loading...</span></p>
+                <p style="font-weight: 600;">Capacity: <span id="user-details-capacity" style="color: var(--secondary-color);">Loading...</span></p>
+            </div>
+            <form id="user-details-form">
+                
+                <div class="input-group">
+                    <label for="user-name">Your Full Name:</label>
+                    <input type="text" id="user-name" placeholder="John Doe" required>
+                </div>
+                <div class="input-group">
+                    <label for="user-email">Email Address:</label>
+                    <input type="email" id="user-email" placeholder="john.doe@example.com" required>
+                </div>
+                <div class="input-group">
+                    <label for="user-phone">Phone Number:</label>
+                    <input type="tel" id="user-phone" pattern="[0-9]{10}" placeholder="10 digits only" required>
+                </div>
+                <div class="input-group">
+                    <label for="booking-purpose">Purpose of Event:</label>
+                    <input type="text" id="booking-purpose" required>
+                </div>
+
+                <button type="submit" class="btn primary-btn">Confirm & Book (Simulated)</button>
+            </form>
+        </div>
+    </div>
+    
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-contact-info">
+                <p>Email: support@mysoreevents.com</p>
+                <p>Phone: (0821) 123-4567</p>
+            </div>
+            <div class="footer-links">
+                <a href="home.html">Home</a> | 
+                <a href="book.html">Book Hall</a> | 
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="footer-socials">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <p style="margin-top: 15px;">&copy; 2024 Mysore Events. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
